@@ -1,5 +1,6 @@
 package com.anhnhh2008110020.phanmemquanlyhanghoa;
-
+//Created date:30/12/2021
+//Ìnfor:Haianh-2008110020-K14DCPM01
 public class NhapThongTinHangHoa {
 
     // khai báo các thuộc tính cần thiết
@@ -11,6 +12,8 @@ public class NhapThongTinHangHoa {
     int soLuong;
     String ngayNhap;
 
+  private static int bienDem =0;
+
     //hàm tạo mặc định
 
     public NhapThongTinHangHoa(){
@@ -19,9 +22,9 @@ public class NhapThongTinHangHoa {
 
     // hàm tạo chứa tham số
 
-    public NhapThongTinHangHoa(String loaiHang, int maHang, String tenHang, int giaNhap, int soLuong, String ngayNhap) {
+    public NhapThongTinHangHoa(String loaiHang, String tenHang, int giaNhap, int soLuong, String ngayNhap) {
         this.loaiHang = loaiHang;
-        this.maHang = maHang;
+        this.maHang = ++bienDem;
         this.tenHang = tenHang;
         this.giaNhap = giaNhap;
         this.soLuong = soLuong;
@@ -37,14 +40,6 @@ public class NhapThongTinHangHoa {
 
     public void setLoai(String loaiHang){
         this.loaiHang = loaiHang;
-    }
-
-    public int getMa(){
-        return maHang;
-    }
-    
-    public void setMa(int maHang){
-        this.maHang = maHang;
     }
 
     public String getTen(){
@@ -91,7 +86,7 @@ public class NhapThongTinHangHoa {
         System.out.print("Giá nhập hàng: "+giaNhap);
         System.out.print("Số lượng tồn kho: "+soLuong);
         System.out.print("Ngày Nhập kho: "+ngayNhap);
-        System.out.println("====================")
+        System.out.println("====================");
     }
 
 }
