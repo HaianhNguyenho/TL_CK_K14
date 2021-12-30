@@ -87,7 +87,7 @@ public class XuLyVaXuatThongTinHangHoa {
         }
     }
     public static void NgayGiam(NhapThongTinHangHoa[]kho) throws ParseException{
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("đ-mm-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy");
         NhapThongTinHangHoa n =kho[0];
         for(int i =0; i<kho.length-1;i++){
             for(int j=i+1;j<kho.length;j++){
@@ -203,7 +203,7 @@ public class XuLyVaXuatThongTinHangHoa {
         ArrayList<NhapThongTinHangHoa> dsHangHoa = new ArrayList<>();
         DuLieu(dsHangHoa);
         
-        int suLuaChon = VarInput("Sự lựa chon");
+        int suLuaChon=VarInput("Sự lựa chon:");
 
         while(true){
             Menubar();
@@ -256,9 +256,10 @@ public class XuLyVaXuatThongTinHangHoa {
             else if(suLuaChon == 2){
                 System.out.println("====================CHỨC NĂNG 2: SỬA HÀNG HÓA====================");
                 int maHangHoa = VarInput("Mã hàng hóa: ");
-                for(NhapThongTinHangHoa thongTin: dsHangHoa){
-                    if(thongTin.maHang == maHangHoa){
-                        XuatThongTinHangHoa(thongTin);
+                for (NhapThongTinHangHoa nhapThongTinHangHoa : dsHangHoa){ 
+            
+                    if(nhapThongTinHangHoa.maHang == maHangHoa){
+                        XuatThongTinHangHoa(nhapThongTinHangHoa);
                         String loaiMoi;
                         while(true){
 
@@ -292,15 +293,15 @@ public class XuLyVaXuatThongTinHangHoa {
                         int giaNhapHH = VarInput("Giá nhập hàng hóa:");
                         int soLuongTK = VarInput("Số lượng tồn kho: ");
                         String ngayNhapHH = Chuoi ("Ngày nhập hàng hóa");
-                        thongTin.setLoai(loaiMoi);
-                        thongTin.setTen(tenHH);
-                        thongTin.setGia(giaNhapHH);
-                        thongTin. setLuong(soLuongTK);
-                        thongTin.setNgay(ngayNhapHH);
+                        nhapThongTinHangHoa.setLoai(loaiMoi);
+                        nhapThongTinHangHoa.setTen(tenHH);
+                        nhapThongTinHangHoa.setGia(giaNhapHH);
+                        nhapThongTinHangHoa. setLuong(soLuongTK);
+                        nhapThongTinHangHoa.setNgay(ngayNhapHH);
                         System.out.println("Đã sửa hàng hóa trong kho siêu thị");
                         break;
                     }
-                    else if(dsHangHoa.indexOf(thongTin) < dsHangHoa.size()){
+                    else if(dsHangHoa.indexOf(nhapThongTinHangHoa) < dsHangHoa.size()){
                         continue;//bỏ qua
                     } 
                     else{
@@ -317,6 +318,7 @@ public class XuLyVaXuatThongTinHangHoa {
                 for (NhapThongTinHangHoa nhapThongTinHangHoa : dsHangHoa) {
                     if(nhapThongTinHangHoa.maHang == maHangHoa){
                         lietKeHH =dsHangHoa.indexOf(nhapThongTinHangHoa);
+                        dsHangHoa.remove(lietKeHH);
                         System.out.println("Đã xóa hàng hóa trong kho siêu thị");
                         System.out.println("===========THOÁT CHỨC NĂNG 3 =====================");
                         break;
